@@ -1,0 +1,152 @@
+/*
+===========================================
+Arduino Nano PID Line Follower
+8 Analog Sensors
+TB6612FNG Motor Driver
+===========================================
+*/
+
+#define NUM_SENSORS 8
+
+int sensorPins[NUM_SENSORS] = {A0,A1,A2,A3,A4,A5,A6,A7};
+int sensorValue[NUM_SENSORS];
+
+// ------------ Motor Pins ------------
+#define STBY 4
+
+#define PWMA 5
+#define AIN1 7
+#define AIN2 8
+
+#define PWMB 6
+#define BIN1 9
+#define BIN2 10
+
+// ------------ PID ------------
+float Kp = 0.25;
+float Ki = 0.00;
+float Kd = 3.5;
+
+float error = 0;
+float previousError = 0;
+float integral = 0;
+float derivative = 0;
+float correction = 0;
+
+int baseSpeed = 170;
+int maxSpeed = 255;
+
+int weights[8] = {-3500,-2500,-1500,-500,500,1500,2500,3500};
+
+void setup()
+{
+  pinMode(STBY,OUTPUT);
+
+  pinMode(AIN1,OUTPUT);
+  pinMode(AIN2,OUTPUT);
+  pinMode(BIN1,OUTPUT);
+  pinMode(BIN2,OUTPUT);
+
+  digitalWrite(STBY,HIGH);
+
+  Serial.begin(115200);
+}
+
+void loop()
+{
+  readSensors();
+
+  error = calculateError();
+
+  integral += error;
+
+  derivative = error - previousError;
+
+  correction =
+      (Kp * error) +
+      (Ki * integral) +
+      (Kd * derivative);
+
+  previousError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  leftSpeed = constrain(leftSpeed,-255,255);
+  rightSpeed = constrain(rightSpeed,-255,255);
+
+  setMotor(leftSpeed,rightSpeed);
+}
+
+//-------------------------------------
+
+void readSensors()
+{
+  for(int i=0;i<NUM_SENSORS;i++)
+  {
+    sensorValue[i]=analogRead(sensorPins[i]);
+  }
+}
+
+//-------------------------------------
+
+float calculateError()
+{
+  long weightedSum=0;
+  long total=0;
+
+  for(int i=0;i<NUM_SENSORS;i++)
+  {
+    int value=1023-sensorValue[i];
+
+    if(value<0)value=0;
+
+    weightedSum += (long)value * weights[i];
+    total += value;
+  }
+
+  if(total==0)
+  {
+    if(previousError>0)
+      return 3500;
+    else
+      return -3500;
+  }
+
+  return (float)weightedSum/total;
+}
+
+//-------------------------------------
+
+void setMotor(int left,int right)
+{
+  if(left>=0)
+  {
+    digitalWrite(AIN1,HIGH);
+    digitalWrite(AIN2,LOW);
+  }
+  else
+  {
+    digitalWrite(AIN1,LOW);
+    digitalWrite(AIN2,HIGH);
+    left=-left;
+  }
+
+  if(right>=0)
+  {
+    digitalWrite(BIN1,HIGH);
+    digitalWrite(BIN2,LOW);
+  }
+  else
+  {
+    digitalWrite(BIN1,LOW);
+    digitalWrite(BIN2,HIGH);
+    right=-right;
+  }
+
+  left=constrain(left,0,255);
+  right=constrain(right,0,255);
+
+  analogWrite(PWMA,left);
+  analogWrite(PWMB,right);
+}
