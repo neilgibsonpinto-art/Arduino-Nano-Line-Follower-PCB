@@ -1,0 +1,45 @@
+ERC report (2026-10-13T09:09:53, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[footprint_link_issues]: Footprint 'JST_B10B-XH-A_LF__SN_' not found in library 'Connector'
+    ; warning
+    @(46.99 mm, 105.41 mm): Symbol J1 [Conn_01x10_Pin]
+[footprint_link_issues]: Footprint 'screw_conn' not found in library 'Connector'
+    ; warning
+    @(50.80 mm, 161.29 mm): Symbol J2 [Conn_01x02]
+[footprint_link_issues]: Footprint 'SW_MINI-SPDT-SW' not found in library 'Socket'
+    ; warning
+    @(58.42 mm, 149.86 mm): Symbol SW1 [SW_SPDT]
+[footprint_link_issues]: The current configuration does not include the footprint library 'ARDUINO'
+    ; warning
+    @(118.11 mm, 101.60 mm): Symbol U1 [ARDUINO_NANO]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'ARDUINO_NANO'
+    ; warning
+    @(118.11 mm, 101.60 mm): Symbol U1 [ARDUINO_NANO]
+[footprint_link_issues]: Footprint 'jst_2pin' not found in library 'Connector'
+    ; warning
+    @(186.69 mm, 154.94 mm): Symbol J3 [S2B-PH-K-S_LF__SN_]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'S2B-PH-K-S_LF__SN_'
+    ; warning
+    @(186.69 mm, 154.94 mm): Symbol J3 [S2B-PH-K-S_LF__SN_]
+[footprint_link_issues]: The current configuration does not include the footprint library 'ARDUINO'
+    ; warning
+    @(191.77 mm, 90.17 mm): Symbol U2 [ROB-14450]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'ROB-14450'
+    ; warning
+    @(191.77 mm, 90.17 mm): Symbol U2 [ROB-14450]
+[footprint_link_issues]: Footprint 'jst_2pin' not found in library 'Connector'
+    ; warning
+    @(231.14 mm, 154.94 mm): Symbol J4 [S2B-PH-K-S_LF__SN_]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'S2B-PH-K-S_LF__SN_'
+    ; warning
+    @(231.14 mm, 154.94 mm): Symbol J4 [S2B-PH-K-S_LF__SN_]
+
+ ** ERC messages: 11  Errors 0  Warnings 11
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

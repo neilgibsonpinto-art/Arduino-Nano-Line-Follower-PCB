@@ -1,0 +1,88 @@
+** Drc report for lineFollow.kicad_pcb **
+** Created on 2026-10-13T09:10:01 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 12 DRC violations **
+[lib_footprint_issues]: The current configuration does not include the footprint library 'neil'
+    Local override; warning
+    @(60.5000 mm, 131.5000 mm): Footprint REF**
+[lib_footprint_issues]: The current configuration does not include the footprint library 'ARDUINO'
+    Local override; warning
+    @(80.2500 mm, 96.7500 mm): Footprint U2
+[lib_footprint_issues]: Footprint 'JST_B10B-XH-A_LF__SN_' not found in library 'Connector'
+    Local override; warning
+    @(85.0000 mm, 129.9750 mm): Footprint J1
+[lib_footprint_mismatch]: Footprint 'LED_D5.0mm' does not match copy in library 'LED_THT'
+    Local override; warning
+    @(64.2500 mm, 97.0000 mm): Footprint D2
+[lib_footprint_issues]: Footprint 'SW_MINI-SPDT-SW' not found in library 'Socket'
+    Local override; warning
+    @(108.0000 mm, 92.7500 mm): Footprint SW1
+[lib_footprint_issues]: The current configuration does not include the footprint library 'ARDUINO'
+    Local override; warning
+    @(86.4000 mm, 117.0000 mm): Footprint U1
+[lib_footprint_issues]: Footprint 'jst_2pin' not found in library 'Connector'
+    Local override; warning
+    @(54.9750 mm, 98.7500 mm): Footprint J4
+[lib_footprint_issues]: Footprint 'jst_2pin' not found in library 'Connector'
+    Local override; warning
+    @(114.7750 mm, 98.2500 mm): Footprint J3
+[lib_footprint_issues]: Footprint 'screw_conn' not found in library 'Connector'
+    Local override; warning
+    @(98.7375 mm, 90.7500 mm): Footprint J2
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6400 mm)
+    Rule: board setup constraints silk text height; warning
+    @(105.0000 mm, 92.0000 mm): Reference field of SW1
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(64.8000 mm, 126.0000 mm): Segment of U1 on F.Silkscreen
+    @(63.0000 mm, 113.5000 mm): Rectangle on F.Silkscreen
+[mirrored_text_on_front_layer]: Mirrored text on front layer
+    Local override; warning
+    @(89.8600 mm, 90.5700 mm): PCB text 'MV' on F.Silkscreen
+
+** Found 0 unconnected pads **
+
+** Found 11 Footprint errors **
+[footprint_symbol_field_mismatch]: Field 'Datasheet' differs (PCB: '~', Schematic: '')
+    Local override; warning
+    @(110.2949 mm, 118.5000 mm): Footprint C1
+[footprint_symbol_field_mismatch]: Field 'Datasheet' differs (PCB: '~', Schematic: '')
+    Local override; warning
+    @(118.0000 mm, 118.5000 mm): Footprint C2
+[missing_footprint]: Missing footprint CALIBRATION1 (SW_Push)
+    Local override; warning
+[footprint_symbol_field_mismatch]: Field 'Datasheet' differs (PCB: '~', Schematic: '')
+    Local override; warning
+    @(98.0000 mm, 100.0000 mm): Footprint D1
+[footprint_symbol_field_mismatch]: Field 'Datasheet' differs (PCB: '~', Schematic: '')
+    Local override; warning
+    @(64.2500 mm, 97.0000 mm): Footprint D2
+[footprint_symbol_field_mismatch]: Field 'Datasheet' differs (PCB: '~', Schematic: '')
+    Local override; warning
+    @(85.0000 mm, 129.9750 mm): Footprint J1
+[footprint_symbol_field_mismatch]: Field 'Datasheet' differs (PCB: '~', Schematic: '')
+    Local override; warning
+    @(98.7375 mm, 90.7500 mm): Footprint J2
+[missing_footprint]: Missing footprint START1 (SW_Push)
+    Local override; warning
+[footprint_symbol_field_mismatch]: Field 'Datasheet' differs (PCB: '~', Schematic: '')
+    Local override; warning
+    @(108.0000 mm, 92.7500 mm): Footprint SW1
+[extra_footprint]: Extra footprint
+    Local override; warning
+    @(59.0000 mm, 112.0000 mm): Footprint CALIBRATION_1
+[extra_footprint]: Extra footprint
+    Local override; warning
+    @(52.5000 mm, 118.0000 mm): Footprint START_1
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - PTH inside courtyard
+    - NPTH inside courtyard
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **

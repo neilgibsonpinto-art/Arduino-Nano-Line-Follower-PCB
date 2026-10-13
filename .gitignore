@@ -1,0 +1,17 @@
+# KiCad temporary and cache files
+*.kicad_prl
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups/
+fp-info-cache
+*.lck
+*.tmp
+
+# Freerouting temporary files
+temp-freerouting.dsn
+
+# Editor and OS files
+.history/
+.vscode/
+Thumbs.db
+.DS_Store
